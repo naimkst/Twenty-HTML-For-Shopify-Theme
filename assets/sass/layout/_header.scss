@@ -80,6 +80,8 @@
 				background: none;
 				color: $white;
 				text-transform: uppercase;
+				height: 30px;
+				line-height: 30px;
 
 				.list {
 					background: $dark-gray;
@@ -105,6 +107,7 @@
 	/*navbar collaps less then 992px*/
 	/*** cart-search-contact ***/
 	z-index: 11;
+	background: #000;
 }
 
 .site-header .navigation {
@@ -173,7 +176,7 @@
 	transition: all 0.5s;
 }
 
-.site-header #navbar>ul li a{
+.site-header #navbar>ul>li a{
 	&:before {
 		position: absolute;
 		left: 50%;
@@ -1054,12 +1057,12 @@
 			}
 
 			>ul>li>a {
-				font-size: 14px;
+				font-size: 12px;
 				font-style: normal;
 				font-weight: 400;
 				line-height: 20px;
 				text-transform: uppercase;
-				padding: 35px 30px;
+				padding: 17px 30px;
 				display: block;
 				position: relative;
 				color: $white;
@@ -1087,7 +1090,7 @@
 			>ul .sub-menu {
 				background-color: #0a0a0a;
 				box-shadow: 0px 2px 20px 0px rgba(62, 65, 159, 0.09);
-				width: 235px;
+				width: 200px;
 				position: absolute;
 				padding: 20px 0;
 				left: 0;
@@ -1099,13 +1102,17 @@
 			}
 
 			>ul>li .sub-menu a {
-				font-size: 14px;
+				font-size: 12px;
 				display: block;
 				padding: 10px 20px;
 				color: $white;
 				position: relative;
 				overflow: hidden;
 				font-weight: 400;
+
+				&::before {
+					display: none;
+				}
 
 				&:hover,
 				&.active {

@@ -3,6 +3,7 @@
 .category-section {
     position: relative;
     z-index: 1;
+    padding-bottom: 20px;
 
     .owl-nav {
         display: none;
@@ -13,10 +14,57 @@
             display: block;
             margin-top: 20px;
             color: #E9E9E9;
-            text-decoration: underline;
+            font-size: 12px;
+            text-align: center;
 
             &:hover {
                 color: $theme-primary-color;
+            }
+        }
+
+        .category-img {
+            position: relative;
+            overflow: hidden;
+
+            .bottom-btn {
+                padding: 10px 15px;
+                background: $theme-primary-color;
+                text-align: left;
+                position: absolute;
+                left: 0;
+                bottom: -50px;
+                width: 100%;
+                transition: all .4s;
+
+                &:before {
+                    position: absolute;
+                    right: 15px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    content: "\e628";
+                    font-family: "themify";
+                    color: #fff;
+                    font-size: 12px;
+                    transition: all .4s;
+                }
+
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+
+        &:hover {
+            .category-img {
+    
+                .bottom-btn {
+                    bottom: 0px;
+                    &:hover {
+                        &:before {
+                            right: 8px;
+                        }
+                    }
+                }
             }
         }
     }
@@ -98,7 +146,7 @@
 
 .cta-section {
     background-attachment: fixed;
-    padding: 120px 0;
+    padding: 60px 0;
     position: relative;
     z-index: 1;
 
@@ -143,15 +191,33 @@
 
 
 .product-wrap {
-    padding-left: 15px;
-    padding-right: 15px;
+    overflow: hidden;
+    padding-top: 1px;
+
+    .owl-stage-outer {
+        border-right: 1px solid $border-color;
+        padding-top: 1px;
+        margin-left: 5px;
+        position: relative;
+
+        &::before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 11px;
+            height: 100%;
+            content: "";
+            background: $black;
+            z-index: 11;
+        }
+    }
 
     .col {
         padding: 0;
     }
 
     .product-item {
-        border: 1px solid $dark-gray;
+        border: 1px solid $border-color;
         padding: 70px 20px 20px;
         text-align: center;
         position: relative;
@@ -167,7 +233,7 @@
             height: 100%;
             left: 0;
             top: 0;
-            background: $dark-gray;
+            background: #222222;
             content: "";
             z-index: 9;
             opacity: .4;
@@ -214,12 +280,40 @@
             }
         }
 
+        .cart-btn {
+            position: absolute;
+            right: 15px;
+            top: -70px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background: #222222;
+            text-align: center;
+            border-radius: 50%;
+            color: $white;
+            border: 1px solid #777;
+            transition: all .4s;
+
+            &:hover {
+                background: $theme-primary-color;
+                border-color: $theme-primary-color;
+            }
+        }
+
+        &:hover {
+            .cart-btn {
+                top: 15px;
+            }
+        }
+
         .product-image {
             position: relative;
 
             img {
                 transform: scale(1);
                 transition: all .3s;
+                width: unset;
+                margin: 0 auto;
             }
 
         }
@@ -265,6 +359,70 @@
 
         }
     }
+
+    .owl-controls {
+        width: 100%;
+        margin: 0;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        @include translatingY();
+    }
+
+    .owl-nav [class*=owl-] {
+        padding: 0;
+        margin: 0;
+        color: $white;
+        @include transition-time(0.3s);
+        border: 0;
+        background: none;
+    }
+
+    .owl-nav .owl-prev,
+    .owl-nav .owl-next {
+        position: absolute;
+        top: 50%;
+        @include translatingY();
+        background: #2e2c2c;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 50%;
+        transition: all .3s;
+        border: 1px solid $dark-gray;
+        opacity: 0;
+
+        &:hover {
+            background: $theme-primary-color;
+            border-color: $theme-primary-color;
+
+            i {
+                color: $white;
+            }
+        }
+
+        @media(max-width:575px) {
+            display: none;
+        }
+    }
+
+    .owl-nav .owl-prev {
+        left: 25px;
+    }
+
+    .owl-nav .owl-next {
+        right: 10px;
+    }
+
+    &:hover {
+
+        .owl-nav .owl-prev,
+        .owl-nav .owl-next {
+            opacity: 1;
+
+        }
+    }
+
 }
 
 .view-btn {
@@ -468,14 +626,25 @@
 // subscribe-section
 
 .subscribe-section {
-    padding: 70px 0;
+
+    .col {
+        padding: 0;
+    }
+
+    .subscribe-img {
+        img {
+            width: 100%;
+        }
+    }
 
     .subscribe-text {
         max-width: 485px;
+        padding-left: 40px;
 
         @media(max-width:991px) {
             margin-bottom: 40px;
             max-width: 100%;
+            padding-left: 15px;
         }
 
         h2 {
@@ -509,7 +678,7 @@
             width: 100%;
             height: 60px;
             border-radius: 5px;
-            border: 1px solid $dark-gray;
+            border: 1px solid $border-color;
             padding: 15px;
             padding-right: 70px;
             background: none;
@@ -644,6 +813,8 @@
 // other-features-area
 
 .other-features-area {
+    padding-top: 20px;
+
     .features-item {
         text-align: center;
 
@@ -677,8 +848,8 @@
     position: relative;
     z-index: 1;
 
-    @media(max-width:991px){
-       padding-bottom: 30px;
+    @media(max-width:991px) {
+        padding-bottom: 30px;
     }
 
     &:before {
@@ -696,7 +867,7 @@
     .cta-item {
         text-align: center;
 
-        @media(max-width:991px){
+        @media(max-width:991px) {
             margin-bottom: 30px;
         }
 
@@ -740,7 +911,7 @@
                 font-weight: 600;
                 line-height: 24px;
 
-                a{
+                a {
                     color: $white;
 
                     &:hover {
@@ -754,7 +925,7 @@
                 max-width: 280px;
                 margin: 0 auto;
                 margin-top: 30px;
-        
+
                 input {
                     width: 100%;
                     height: 42px;
@@ -764,13 +935,13 @@
                     padding: 15px;
                     padding-right: 70px;
                     color: $white;
-        
+
                     &:focus {
                         outline: none;
                         border-color: $theme-primary-color;
                     }
                 }
-        
+
                 button {
                     position: absolute;
                     right: 0;
@@ -781,7 +952,7 @@
                     border: 0;
                     color: $white;
                 }
-        
+
                 p {
                     margin-top: 40px;
                     font-size: 13px;

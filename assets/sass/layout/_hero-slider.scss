@@ -105,6 +105,15 @@
 
 	.slide-content {
 		padding-bottom: 100px;
+		padding-left: 100px;
+
+		@include media-query(1700px) {
+			padding-left: 30px;
+		}
+
+		@include media-query(1500px) {
+			padding-left: 10px;
+		}
 	}
 
 	.slide-btns {
@@ -198,8 +207,11 @@
 		text-align: left;
 		left: 100px;
 
-		@include media-query(1400px) {
-			left: 40px;
+		@include media-query(1700px) {
+			left: 32px;
+		}
+		@include media-query(1500px) {
+			left: 12px;
 		}
 	}
 

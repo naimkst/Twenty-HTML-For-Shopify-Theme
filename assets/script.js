@@ -366,6 +366,49 @@
             }
         });
     }
+    /*------------------------------------------
+       product slider
+    -------------------------------------------*/
+    if ($(".product-active").length) {
+        $(".product-active").owlCarousel({
+            autoplay: true,
+            smartSpeed: 300,
+            margin: 0,
+            loop: true,
+            autoplayHoverPause: true,
+            dots: false,
+            navText: ['<i class="ti-arrow-left"></i>', '<i class="ti-arrow-right"></i>'],
+            nav: false,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+
+                350: {
+                    items: 1,
+                },
+                500: {
+                    items: 2,
+                },
+
+                768: {
+                    items: 3,
+                },
+                992: {
+                    items: 3,
+                },
+
+                1200: {
+                    items: 4
+                },
+
+                1400: {
+                    items: 4
+                },
+
+            }
+        });
+    }
 
     /*------------------------------------------
        = testimonial-active

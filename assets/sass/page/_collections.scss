@@ -1,6 +1,7 @@
 /*--------------------------------------------------------------
 14. collection-section
 --------------------------------------------------------------*/
+
 .collection-section {
     padding-top: 40px;
 
@@ -58,6 +59,7 @@
             .collection-text {
                 padding: 40px;
                 margin-top: 20px;
+                text-align: center;
 
                 @media(max-width:1300px) {
                     padding: 30px;
@@ -83,7 +85,8 @@
 
                     &:before {
                         position: absolute;
-                        left: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
                         top: 0;
                         width: 23px;
                         height: 4px;
@@ -140,4 +143,40 @@
 
 .mfp-figure:after {
     display: none;
+}
+
+.collection-page {
+    .product-wrap .product-item .product-info h2 {
+        position: relative;
+        padding-top: 20px;
+
+        &:before {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            width: 23px;
+            height: 4px;
+            content: "";
+            background: #F14F0E;
+            border-radius: 5px;
+        }
+    }
+
+    .collection-section .collection-items .collection-one .collection-text {
+
+        h2 {
+            margin-bottom: 5px;
+
+        }
+
+        a.shop-all {
+            font-size: 12px;
+            color: $white;
+
+            &:hover {
+                color: $theme-primary-color;
+            }
+        }
+    }
 }
