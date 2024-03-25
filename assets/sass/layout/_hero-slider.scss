@@ -6,21 +6,22 @@
 .hero-slider,
 .static-hero {
 	width: 100%;
-	height: 758px;
+	height: 100vh;
+	min-height: 758px;
 	display: flex;
 	position: relative;
 	z-index: 0;
 
 	@include media-query(1199px) {
-		height: 700px;
+		min-height: 700px;
 	}
 
 	@include media-query(991px) {
-		height: 650px;
+		min-height: 650px;
 	}
 
 	@include media-query(767px) {
-		height: 500px;
+		min-height: 500px;
 	}
 
 	.gradient-overlay+.container {
@@ -216,11 +217,11 @@
 	}
 
 	.swiper-pagination-bullet {
-		width: 12px;
-		height: 12px;
+		width: 7px;
+		height: 7px;
 		text-align: center;
-		line-height: 12px;
-		font-size: 12px;
+		line-height: 7px;
+		font-size: 7px;
 		color: #000;
 		opacity: 1;
 		background: $white;
@@ -230,10 +231,10 @@
 	.swiper-pagination-bullet-active {
 		color: $theme-primary-color;
 		background: $theme-primary-color;
-		width: 12px;
-		height: 12px;
+		width: 7px;
+		height: 7px;
 		text-align: center;
-		line-height: 12px;
+		line-height: 7px;
 	}
 
 	.swiper-container-horizontal>.swiper-pagination-bullets,

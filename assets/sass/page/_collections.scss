@@ -146,6 +146,10 @@
 }
 
 .collection-page {
+    .product-wrap .product-item {
+        background: none;
+        border: 1px solid #262626;
+    }
     .product-wrap .product-item .product-info h2 {
         position: relative;
         padding-top: 20px;

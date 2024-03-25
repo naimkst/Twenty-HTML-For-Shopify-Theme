@@ -274,19 +274,6 @@
     }
 
 
-    const header = document.querySelector(".site-header");
-    const toggleClass = "sticky-header";
-
-    window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset;
-        if (currentScroll > 150) {
-            header.classList.add(toggleClass);
-        } else {
-            header.classList.remove(toggleClass);
-        }
-    });
-
-
     /*------------------------------------------
         = WOW ANIMATION SETTING
     -------------------------------------------*/
@@ -330,7 +317,7 @@
         $(".category-slider-active").owlCarousel({
             autoplay: true,
             smartSpeed: 300,
-            margin: 20,
+            margin: 0,
             loop: true,
             autoplayHoverPause: true,
             dots: false,
@@ -373,7 +360,7 @@
         $(".product-active").owlCarousel({
             autoplay: true,
             smartSpeed: 300,
-            margin: 0,
+            margin: 20,
             loop: true,
             autoplayHoverPause: true,
             dots: false,
@@ -423,9 +410,14 @@
             dots: false,
             navText: ['<i class="ti-arrow-left"></i>', '<i class="ti-arrow-right"></i>'],
             nav: false,
+            loop: true,
+            autoWidth: true,
+            items: 4,
+
             responsive: {
                 0: {
                     items: 1,
+                    autoWidth: false,
                 },
 
                 500: {
@@ -604,6 +596,18 @@
         WHEN WINDOW SCROLL
     ==========================================================================*/
     $(window).on("scroll", function () {
+        var headerSection = $('.site-header');
+
+        if ($(window).scrollTop() > 300) {
+            headerSection.addClass('header-fixed fadeInDown animated');
+        } else {
+            headerSection.removeClass('header-fixed fadeInDown animated');
+        }
+
+        // fixed header remove for register page only
+        if ($('.site-header').hasClass('header-for-register')) {
+            $('.site-header').removeClass('header-fixed fadeInDown animated');
+        }
 
         toggleBackToTopBtn();
 
